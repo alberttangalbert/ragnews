@@ -3,6 +3,8 @@ import time
 from groq import Groq, RateLimitError, InternalServerError
 import requests
 
+from .groq_utils import str_time_to_seconds
+
 # https://console.groq.com/docs/rate-limits
 # Requests Per Day (RPD)
 request_limit = 14400
@@ -33,21 +35,6 @@ class Groq_Wrapper:
             time.sleep(self.token_reset_time)
             self.tokens_remaining = token_limit
 
-    def str_time_to_seconds(self, time_str):
-        """
-        Converts time in str '1m5.583s' or '7.66s' to seconds as a float.
-        """
-        minutes = 0
-        seconds = 0
-        
-        if 'm' in time_str:
-            minutes_part, time_str = time_str.split('m')
-            minutes = int(minutes_part)
-        
-        if 's' in time_str:
-            seconds = float(time_str.replace('s', ''))
-        
-        return minutes * 60 + seconds
 
     def update_rate_limits_from_headers(self, headers):
         """
@@ -59,8 +46,8 @@ class Groq_Wrapper:
         request_reset_time_str = headers.get("x-ratelimit-reset-requests", "0")
         token_reset_time_str = headers.get("x-ratelimit-reset-tokens", "0")
         
-        self.request_reset_time = self.str_time_to_seconds(request_reset_time_str)
-        self.token_reset_time = self.str_time_to_seconds(token_reset_time_str)
+        self.request_reset_time = str_time_to_seconds(request_reset_time_str)
+        self.token_reset_time = str_time_to_seconds(token_reset_time_str)
 
     def update_tokens_used(self, usage):
         """
@@ -68,7 +55,26 @@ class Groq_Wrapper:
         """
         self.tokens_remaining -= usage.prompt_tokens + usage.completion_tokens
 
-    def summarize_chunk(self, chunk, max_retries=5, final_summary=False):
+    def query(self, system_prompt, user_prompt, seed=None):
+        messages = []
+        if system_prompt:
+            messages += [{
+                'role': 'system',
+                'content': system_prompt
+            }]
+        if user_prompt: 
+            messages += [{
+                "role": "user",
+                "content": user_prompt
+            }]
+        completion = self.client.chat.completions.with_raw_response.create(
+            messages=messages,
+            model="llama3-8b-8192",
+            seed=seed
+        )
+        return completion
+    
+    def summarize_chunk(self, chunk, max_retries=5, seed=None):
         """
         We need to call the split_document_into_chunks on text.
         Then for each paragraph in the output list,
@@ -82,33 +88,23 @@ class Groq_Wrapper:
             try:
                 self.enforce_rate_limits()
 
-                response = self.client.chat.completions.with_raw_response.create(
-                    messages=[
-                        {
-                            'role': 'system',
-                            'content': (
-                                'Summarize the given text. '
-                                'Limit the summary to 1 '
-                                f'{["sentence", "5 sentence pargraph"][final_summary]}. '
-                                'Just output the summary, do not return any commentary, remarks '
-                                ', or other text.'
-                            )
-                        },
-                        {
-                            "role": "user",
-                            "content": chunk,
-                        }
-                    ],
-                    model="llama3-8b-8192",
+                system_prompt = (
+                    'Summarize the input text below. '
+                    'Limit the summary to 1 paragraph. '
+                    'Use an advanced reading level similar to the input text, '
+                    'and ensure that all people, places, and other proper and '
+                    'dates nouns are included in the summary. '
+                    'The summary should be in English.'
                 )
-                
-                completion = response.parse() 
-                summary = completion.choices[0].message.content
+
+                completion = self.query(system_prompt, chunk, seed)
+                parsed_completion = completion.parse() 
+                summary = parsed_completion.choices[0].message.content
                 
 
                 self.requests_remaining -= 1
-                self.update_tokens_used(completion.usage)
-                self.update_rate_limits_from_headers(response.headers)
+                self.update_tokens_used(parsed_completion.usage)
+                self.update_rate_limits_from_headers(completion.headers)
 
                 return summary
             
@@ -150,6 +146,6 @@ class Groq_Wrapper:
             chunk_summaries.append(summary)
         
         # Summarize the summaries
-        final_summary = self.summarize_chunk(' '.join(chunk_summaries), final_summary=True)
+        final_summary = self.summarize_chunk(' '.join(chunk_summaries))
         
         return final_summary

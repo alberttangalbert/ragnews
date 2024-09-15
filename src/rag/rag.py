@@ -30,4 +30,3 @@ def rag(text, db):
     # but don't spend a lot of time on the system prompt until you're sure everything else is working.
     # Then, you can iteratively add more commands into the system prompt to correct "bad" behavior you see in your program's output.
 
-
