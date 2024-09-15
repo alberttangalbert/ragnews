@@ -5,7 +5,7 @@ import datetime
 from urllib.parse import urlparse
 import logging
 
-from db_utils import _catch_errors, _logsql, summarize_text, translate_text
+from .db_utils import _catch_errors, _logsql, summarize_text, translate_text
 
 class ArticleDB:
     '''

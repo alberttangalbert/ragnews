@@ -1,30 +1,61 @@
 import argparse
 import logging 
+import sys 
 
-from articledb import ArticleDB
-from rag import rag
+from articledb.articledb import ArticleDB
+from rag.rag import rag
 
-parser = argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--loglevel', default='warning')
-parser.add_argument('--db', default='./sql_data/ragnews.db')
-parser.add_argument('--recursive_depth', default=0, type=int)
-parser.add_argument('--add_url', help='If this parameter is added, then the program will not provide an interactive QA session with the database.  Instead, the provided url will be downloaded and added to the database.')
-args = parser.parse_args()
+def parse_arguments():
+    """
+    Parses command-line arguments for the application.
+    """
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--loglevel', default='warning')
+    parser.add_argument('--db', default='./src/sql_dbs/ragnews.db')
+    parser.add_argument('--recursive_depth', default=0, type=int)
+    parser.add_argument('--add_url', help='If this parameter is added, then the program will not provide an interactive QA session with the database.  Instead, the provided url will be downloaded and added to the database.')
+    return parser.parse_args()
 
-logging.basicConfig(
-    format='%(asctime)s %(levelname)-8s %(message)s',
-    datefmt='%Y-%m-%d %H:%M:%S',
-    level=args.loglevel.upper(),
+def setup_logging(loglevel):
+    """
+    Configures the logging level and format.
+    """
+    logging.basicConfig(
+        format='%(asctime)s %(levelname)-8s %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S',
+        level=loglevel.upper(),
     )
 
-db = ArticleDB(args.db)
+def main():
+    args = parse_arguments()
+    setup_logging(args.loglevel)
 
-if args.add_url:
-    db.add_url(args.add_url, recursive_depth=args.recursive_depth, allow_dupes=True)
+    try:
+        db = ArticleDB(args.db)
+    except Exception as e:
+        logging.error(f"Failed to initialize the database: {e}")
+        sys.exit(1)
 
-else:
-    while True:
-        text = input('ragnews> ')
-        if len(text.strip()) > 0:
-            output = rag(text, db)
-            print(output)
+    if args.add_url:
+        try:
+            db.add_url(args.add_url, recursive_depth=args.recursive_depth, allow_dupes=True)
+            logging.info(f"Successfully added URL: {args.add_url}")
+        except Exception as e:
+            logging.error(f"Error adding URL to the database: {e}")
+            sys.exit(1)
+    else:
+        # Interactive q&a in terminal
+        try:
+            while True:
+                text = input('ragnews> ')
+                if text.strip():
+                    output = rag(text, db)
+                    print(output)
+        except KeyboardInterrupt:
+            print("\nExiting interactive session.")
+        except Exception as e:
+            logging.error(f"Error during interactive session: {e}")
+            sys.exit(1)
+
+if __name__ == "__main__":
+    main()
