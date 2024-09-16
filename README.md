@@ -1,1 +1,1 @@
-# ragnews
+# ragnews ![](https://github.com/alberttangalbert/ragnews/workflows/test/badge.svg)

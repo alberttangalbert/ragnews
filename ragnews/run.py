@@ -44,18 +44,30 @@ def main():
             logging.error(f"Error adding URL to the database: {e}")
             sys.exit(1)
     else:
-        # Interactive q&a in terminal
-        try:
-            while True:
-                text = input('user_query> ')
-                if text.strip():
+        # Check if input is from a pipe or interactive
+        if sys.stdin.isatty():
+            # Interactive q&a in terminal
+            try:
+                while True:
+                    text = input('user_query> ')
+                    if text.strip():
+                        output = rag(text, db)
+                        print(output)
+            except KeyboardInterrupt:
+                print("\nExiting interactive session.")
+            except Exception as e:
+                logging.error(f"Error during interactive session: {e}")
+                sys.exit(1)
+        else:
+            # Handle piped input
+            try:
+                text = sys.stdin.read().strip()
+                if text:
                     output = rag(text, db)
                     print(output)
-        except KeyboardInterrupt:
-            print("\nExiting interactive session.")
-        except Exception as e:
-            logging.error(f"Error during interactive session: {e}")
-            sys.exit(1)
+            except Exception as e:
+                logging.error(f"Error handling piped input: {e}")
+                sys.exit(1)
 
 if __name__ == "__main__":
     main()
