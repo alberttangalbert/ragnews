@@ -1,4 +1,4 @@
-name: Run RAGNews and Claremont DB Tests
+name: tests
 
 on:
   push:
