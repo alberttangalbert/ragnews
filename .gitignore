@@ -1,7 +1,6 @@
 *.swo
 *.swp
 .env
-*.db
 __pycache__
 venv
 .DS_Store
