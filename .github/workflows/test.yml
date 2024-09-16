@@ -35,7 +35,7 @@ jobs:
 
       - name: Clone and install bunch
         run: |
-          git clone https://github.com/dsc/bunch.git
+          git clone https://github.com/alberttangalbert/bunch.git
           cd bunch
           pip install .
 
