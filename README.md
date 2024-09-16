@@ -10,39 +10,48 @@ Steps to setup:
 1) Create .env file (example given) and enter GROQ api key
 2) pip install -r requirements.txt
 3) Clone metahtml repository 
-git clone --filter=blob:none --no-checkout https://github.com/mikeizbicki/metahtml
-cd metahtml
-git sparse-checkout init
-git sparse-checkout set --cone
-echo '/*' > .git/info/sparse-checkout
-echo '!/tests/.cache/' >> .git/info/sparse-checkout
-git sparse-checkout reapply
-git checkout master
+```
+$ git clone --filter=blob:none --no-checkout https://github.com/mikeizbicki/metahtml
+$ cd metahtml
+$ git sparse-checkout init
+$ git sparse-checkout set --cone
+$ echo '/*' > .git/info/sparse-checkout
+$ echo '!/tests/.cache/' >> .git/info/sparse-checkout
+$ git sparse-checkout reapply
+$ git checkout master
+```
 
 4) Clone bunch repository 
-git clone https://github.com/alberttangalbert/bunch.git
-cd bunch
-pip install .
+```
+$ git clone https://github.com/alberttangalbert/bunch.git
+$ cd bunch
+$ pip install .
+```
 
-4) Export .env variables to environemnt
-export $(cat .env)
+4) Export .env variables to environment
+```
+$ export $(cat .env)
+```
 
-Run to create/update existing sql database:
-1) cd ragnews 
-2) python3 run.py python3 run.py --add_url="$url" --recursive_depth="$depth" --db="$path_to_db"
+5) Run to create/update existing sql database (optional)
+```
+$ cd ragnews 
+$ python3 run.py python3 run.py --add_url="$url" --recursive_depth="$depth" --db="$path_to_db"
+```
 
-Run to chat with Groq that has RAG capabilities 
-1) cd ragnews 
-2) python3 run.py python3 run.py --db="$path_to_db"
+Chat with Groq that has RAG capabilities 
+```
+$ python3 run.py python3 run.py --db="$path_to_db"
+```
 
-Note: To exit press ctrl+Z
+Note: To exit, press ctrl+Z
 
 Example runs:
 
 ---
-
-python3 run.py
-ragnews> who is the current presidential candidate
+```
+$ python3 run.py
+$ ragnews> who is the current presidential candidate
 The current presidential candidates are:
 
 1. Vice President Kamala Harris (Democrat)
@@ -51,11 +60,11 @@ The current presidential candidates are:
 They are scheduled to face off in their first and potentially only debate on Tuesday night in Philadelphia.
 
 Note: As of the knowledge cutoff, President Joe Biden had withdrawn from the race after a disappointing performance in the first general election debate. However, the information provided in the articles suggests that the primary candidates are currently Vice President Kamala Harris and former President Donald Trump.
-
+```
 ---
-
-python run.py --db="./sql_dbs/claremont.db"
-user_query> tell me about claremont mckenna college
+```
+$ python run.py --db="./sql_dbs/claremont.db"
+$ user_query> tell me about claremont mckenna college
 Claremont McKenna College (CMC) is a private liberal arts college located in Claremont, California, United States. It is one of the seven member institutions of The Claremont Colleges, a network of liberal arts colleges and graduate schools. CMC is known for its strong programs in the social sciences, humanities, and natural sciences, as well as its focus on leadership, international relations, and global issues.
 
 Here are some key facts about Claremont McKenna College:
@@ -75,13 +84,12 @@ Related articles:
 
 * Racial diversity among P-P, CMS athletes not reflective of student bodies - The Student Life
 * Long before his NBA titles, Spurs coach Gregg Popovich says he 'fell in love' with Division III lifestyle at Pomona-Pitzer
-* From Walk-On To National Champion: Tyra Abraham On Her Running Career That Almost Wasn't - The Student Life
-user_query> 
-
+* From Walk-On To National Champion: Tyra Abraham On Her Running Career That Almost Wasn't - The Student Life 
+```
 ---
-
-python run.py --db="./sql_dbs/ragnews.db"  
-user_query> who is projected to win the 2024 election
+```
+$ python run.py --db="./sql_dbs/ragnews.db"  
+$ user_query> who is projected to win the 2024 election
 As of the articles provided, it appears that the outcome of the 2024 presidential election is uncertain and subject to various factors. There is no clear projection or prediction of which candidate, Kamala Harris or Donald Trump, is likely to win.
 
 However, it's worth noting that the articles highlight the tight race for control of Congress, with Democrats gaining energy and enthusiasm among voters, potentially impacting the outcome of the election. Additionally, the debate performance of the candidates, as well as their campaign strategies and public perception, may play a crucial role in shaping the outcome of the election.
@@ -94,7 +102,7 @@ It's also important to consider that the articles are citing various factors tha
 4. Fundraising: The articles mention the Democratic Party's fundraising advantage, which could impact their ability to mobilize voters and resources.
 
 Given the complexities involved, it's challenging to project a clear winner at this point. It's essential to stay updated with the latest developments, candidate performances, and public opinion surveys to gain a better understanding of the election's outcome.
-
+```
 
 
 
