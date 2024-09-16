@@ -11,7 +11,7 @@ def parse_arguments():
     '''
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--loglevel', default='warning')
-    parser.add_argument('--db', default='./src/sql_dbs/ragnews.db')
+    parser.add_argument('--db', default='./sql_dbs/ragnews.db')
     parser.add_argument('--recursive_depth', default=0, type=int)
     parser.add_argument('--add_url', help='If this parameter is added, then the program will not provide an interactive QA session with the database.  Instead, the provided url will be downloaded and added to the database.')
     return parser.parse_args()
@@ -47,7 +47,7 @@ def main():
         # Interactive q&a in terminal
         try:
             while True:
-                text = input('ragnews> ')
+                text = input('user_query> ')
                 if text.strip():
                     output = rag(text, db)
                     print(output)

@@ -1,6 +1,6 @@
 import logging 
 import re 
-
+from datetime import datetime
 from groq_wrapper.groq_wrapper import Groq_Wrapper
 
 groq_wrapper = Groq_Wrapper()
@@ -49,34 +49,6 @@ def translate_text(text):
     translation = parsed_completion.choices[0].message.content
     return translation
 
-
-def extract_keywords(text, seed=None):
-    r'''
-    This is a helper function for RAG.
-    Given an input text,
-    this function extracts the keywords that will be used to perform the search for articles that will be used in RAG.
-
-    >>> extract_keywords('Who is the current democratic presidential nominee?', seed=0)
-    'Joe candidate nominee presidential Democrat election primary TBD voting politics'
-    >>> extract_keywords('What is the policy position of Trump related to illegal Mexican immigrants?', seed=0)
-    'Trump Mexican immigrants policy position illegal border control deportation walls'
-
-    Note that the examples above are passing in a seed value for deterministic results.
-    In production, you probably do not want to specify the seed.
-    '''
-
-    # FIXME:
-    # Implement this function.
-    # It's okay if you don't get the exact same keywords as me.
-    # You probably certainly won't because you probably won't come up with the exact same prompt as me.
-    # To make the test cases above pass,
-    # you'll have to modify them to be what the output of your prompt provides.
-
-
-################################################################################
-# helper functions
-################################################################################
-
 def _logsql(sql):
     rex = re.compile(r'\W+')
     sql_dewhite = rex.sub(' ', sql)
@@ -95,3 +67,17 @@ def _catch_errors(func):
         except Exception as e:
             logging.error(str(e))
     return inner_function
+
+def parse_date(date_str):
+    if not date_str:
+        return None
+    """
+    Parses a date string, including those with timezone information.
+    """
+    try:
+        return datetime.fromisoformat(date_str)
+    except ValueError:
+        raise ValueError(f"Date format not recognized: {date_str}")
+
+def clean_string(s):
+    return re.sub(r'[^a-zA-Z\s]', '', s)

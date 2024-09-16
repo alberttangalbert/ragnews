@@ -1,12 +1,9 @@
-import requests
-from metahtml import parse, simplify_meta
 import sqlite3
-import datetime
+from datetime import datetime
 from urllib.parse import urlparse
 import logging
 
-from .db_utils import _catch_errors, _logsql, summarize_text, translate_text
-from groq_wrapper.groq_wrapper import Groq_Wrapper
+from .db_utils import _catch_errors, _logsql, summarize_text, translate_text, parse_date, clean_string
 
 class ArticleDB:
     '''
@@ -57,28 +54,23 @@ class ArticleDB:
         >>> db._create_schema()
         >>> db._create_schema()
         '''
-        try:
-            sql = '''
-            CREATE VIRTUAL TABLE articles
-            USING FTS5 (
-                title,
-                text,
-                hostname,
-                url,
-                publish_date,
-                crawl_date,
-                lang,
-                en_translation,
-                en_summary
-                );
-            '''
-            self.db.execute(sql)
-            self.db.commit()
+        sql = '''
+        CREATE VIRTUAL TABLE IF NOT EXISTS articles
+        USING FTS5 (
+            title,
+            text,
+            hostname,
+            url,
+            publish_date,
+            crawl_date,
+            lang,
+            en_translation,
+            en_summary
+            );
+        '''
+        self.db.execute(sql)
+        self.db.commit()
 
-        # if the database already exists,
-        # then do nothing
-        except sqlite3.OperationalError:
-            self.logger.debug('CREATE TABLE failed')
 
     def find_articles(self, query, limit=10, timebias_alpha=1):
         '''
@@ -87,33 +79,36 @@ class ArticleDB:
         Lowering the value of the timebias_alpha parameter will result in the time becoming more influential.
         The final ranking is computed by the FTS5 rank * timebias_alpha / (days since article publication + timebias_alpha).
         
-        
         '''
-        
-        try:
-            sql = '''
+        keywords = [clean_string(kw) for kw in query.split(",")]  # Split query into keywords
+        query_placeholder = ' OR '.join([f'articles MATCH ?' for _ in keywords])  
+        sql = f'''
             SELECT rowid, rank, title, publish_date, hostname, url, en_summary, text
             FROM articles
-            WHERE articles MATCH ?
+            WHERE {query_placeholder}
             LIMIT ?;
-            '''
-            _logsql(sql)
-            # execute sql query and fetch articles
-            cursor = self.db.cursor()
-            cursor.execute(sql, [query, limit])
-            rows = cursor.fetchall()
-        except sqlite3.OperationalError:
-            self.logger.debug('FTS5 retrival failed failed')
+        '''
+        _logsql(sql)
 
-        # rank articles
-        current_date = datetime.now()
         articles = []
+        cursor = self.db.cursor()
+        params = keywords + [limit]  # Add the limit as the last parameter
+        cursor.execute(sql, params)
+        rows = cursor.fetchall()
+        
+        # rank articles
+        current_date = datetime.now()  # This is a naive datetime object
         for row in rows:
-            publish_date = datetime.strptime(row['publish_date'], "%Y-%m-%d")
-            days_since_publication = (current_date - publish_date).days
+            publish_date = parse_date(row['publish_date'])
+            if publish_date:
+                # Ensure both dates are naive by removing timezone info
+                publish_date = publish_date.replace(tzinfo=None)
+                days_since_publication = (current_date - publish_date).days
+            else:
+                days_since_publication = float('inf')  # If no publish date, use a large value
 
-            # calculate rank based on FTS5 rank and days_since_publication
-            rank = row['rank']
+            # Handle cases where rank might be None
+            rank = row['rank'] if row['rank'] is not None else 0
             timebias = (rank * timebias_alpha) / (days_since_publication + timebias_alpha)
 
             articles.append({
@@ -129,7 +124,6 @@ class ArticleDB:
             })
 
         articles.sort(key=lambda x: x['timebias'], reverse=True)
-
         return articles
 
     @_catch_errors
@@ -154,6 +148,9 @@ class ArticleDB:
         3
 
         '''
+        from bs4 import BeautifulSoup
+        import requests
+        import metahtml
         logging.info(f'add_url {url}')
 
         if not allow_dupes:
@@ -181,8 +178,8 @@ class ArticleDB:
         hostname = parsed_uri.netloc
 
         logging.debug(f'extracting information')
-        parsed = parse(response.text, url)
-        info = simplify_meta(parsed)
+        parsed = metahtml.parse(response.text, url)
+        info = metahtml.simplify_meta(parsed)
 
         if info['type'] != 'article' or len(info['content']['text']) < 100:
             logging.debug(f'not an article... skipping')
@@ -213,7 +210,7 @@ class ArticleDB:
             hostname,
             url,
             info['timestamp.published']['lo'],
-            datetime.datetime.now().isoformat(),
+            datetime.now().isoformat(),
             info['language'],
             en_translation,
             en_summary,
