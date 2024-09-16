@@ -1,4 +1,4 @@
-# ragnews ![](https://github.com/alberttangalbert/ragnews/workflows/test/badge.svg)
+# ragnews ![](https://github.com/alberttangalbert/ragnews/actions/workflows/tests.yml/badge.svg)
 
 Performs RAG on sql database (.db) files. 
 User input prompts are ran through the RAG to fetch relevant articles in the database.
