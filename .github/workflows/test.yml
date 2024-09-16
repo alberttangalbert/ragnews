@@ -43,10 +43,11 @@ jobs:
       - name: Make shell scripts executable
         run: chmod +x ./tests/*.sh
 
-      # New step to run shell scripts in the "tests" folder
+      # New step to run shell scripts
       - name: Run shell scripts
         run: |
-          for script in ./tests/*.sh; do
+          cd tests  # Navigate to the tests folder
+          for script in *.sh; do
             echo "Running $script"
             bash "$script"
           done

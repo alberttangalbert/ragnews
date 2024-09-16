@@ -2,10 +2,9 @@
 
 Performs RAG on sql database (.db) files. 
 User input prompts are ran through the RAG to fetch relevant articles in the database.
+The user will input the path of the sql database file as one of the arguments. 
 The summaries of the articles are then passed into a Groq wrapper.
 Groq then responds with given the updated information from the articles. 
-
-The following example summarizes the declaration of independence.
 
 Steps to run:
 1) Create .env file (example given) and enter GROQ api key
