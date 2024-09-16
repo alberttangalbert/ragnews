@@ -14,5 +14,5 @@ https://www.cgu.edu/news/
 '
 for url in $urls; do
     echo url
-    python3 ../ragnews/run.py --add_url="$url" --recursive_depth=0 --db=../ragnews/sql_dbs/ragnews.db --loglevel=INFO
+    python3 run.py --add_url="$url" --recursive_depth=0 --db=./sql_dbs/ragnews.db --loglevel=INFO
 done

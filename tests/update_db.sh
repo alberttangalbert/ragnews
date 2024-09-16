@@ -122,5 +122,5 @@ https://www.usnews.com/topics/subjects/elections
 
 for url in $urls; do
     echo url
-    python3 ../ragnews/run.py --add_url="$url" --recursive_depth=1 --db=../ragnews/sql_dbs/ragnews.db --loglevel=DEBUG
+    python3 run.py --add_url="$url" --recursive_depth=1 --db=./sql_dbs/ragnews.db --loglevel=DEBUG
 done
