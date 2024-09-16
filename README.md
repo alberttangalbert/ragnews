@@ -104,6 +104,32 @@ It's also important to consider that the articles are citing various factors tha
 Given the complexities involved, it's challenging to project a clear winner at this point. It's essential to stay updated with the latest developments, candidate performances, and public opinion surveys to gain a better understanding of the election's outcome.
 ```
 
+Steps to run tests 
+
+1) Setup permissions
+```
+$ chmod +x ./tests/*.sh
+```
+2) Run sh files 
+```
+# cd tests
+$ ./test_run.sh
+$ ./test-update_db-claremont.sh
+$ ./test-update_db.sh
+```
+
+Steps to update ragnews and claremont databases
+
+1) Setup permissions
+```
+$ chmod +x ./update_db/*.sh
+```
+2) Run sh files 
+```
+# cd update_db
+$ ./update_db-claremont.sh
+$ ./update_db.sh
+```
 
 
 
