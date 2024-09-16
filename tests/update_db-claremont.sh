@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/bash
+
+# Navigate to the ragnews folder
+cd ../ragnews || exit
 
 urls='
 https://tsl.news/

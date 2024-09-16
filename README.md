@@ -1,6 +1,9 @@
 # ragnews ![](https://github.com/alberttangalbert/ragnews/workflows/test/badge.svg)
 
-Use an LLM to summarize a document on the command line.
+Performs RAG on sql database (.db) files. 
+User input prompts are ran through the RAG to fetch relevant articles in the database.
+The summaries of the articles are then passed into a Groq wrapper.
+Groq then responds with given the updated information from the articles. 
 
 The following example summarizes the declaration of independence.
 

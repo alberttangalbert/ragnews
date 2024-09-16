@@ -1,3 +1,8 @@
+#!/bin/bash
+
+# Navigate to the ragnews folder
+cd ../ragnews || exit
+
 # Test cases for ragnews.db
 queries_ragnews=(
   "tell me about the current presidential candidates"
@@ -19,5 +24,5 @@ queries_claremont=(
 )
 
 for query in "${queries_claremont[@]}"; do
-  echo "$query" | python3 run.py --db="./sql_dbs/claremont.db"
+  echo "$query" | python3 run.py --db=./sql_dbs/claremont.db
 done
