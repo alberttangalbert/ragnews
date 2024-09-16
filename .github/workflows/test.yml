@@ -29,9 +29,14 @@ jobs:
 
       - name: Clone and install metahtml
         run: |
-          git clone https://github.com/mikeizbicki/metahtml.git
+          git clone --filter=blob:none --no-checkout https://github.com/mikeizbicki/metahtml
           cd metahtml
-          pip install .
+          git sparse-checkout init
+          git sparse-checkout set --cone
+          echo '/*' > .git/info/sparse-checkout
+          echo '!/tests/.cache/' >> .git/info/sparse-checkout
+          git sparse-checkout reapply
+          git checkout master
 
       - name: Clone and install bunch
         run: |
