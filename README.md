@@ -8,7 +8,10 @@ Groq then responds with given the updated information from the articles.
 
 Steps to setup:
 1) Create .env file (example given) and enter GROQ api key
-2) pip install -r requirements.txt
+2) 
+```
+$ pip install -r requirements.txt
+```
 3) Clone metahtml repository 
 ```
 $ git clone --filter=blob:none --no-checkout https://github.com/mikeizbicki/metahtml
