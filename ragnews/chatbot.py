@@ -2,8 +2,8 @@ import argparse
 import logging 
 import sys 
 
-from db.articledb import ArticleDB
-from rag.rag import rag
+from db_wrapper.articledb import ArticleDB
+from ragnews.rag import rag_chatbot
 
 def parse_arguments():
     '''
@@ -51,7 +51,7 @@ def main():
                 while True:
                     text = input('user_query> ')
                     if text.strip():
-                        output = rag(text, db)
+                        output = rag_chatbot(text, db)
                         print(output)
             except KeyboardInterrupt:
                 print("\nExiting interactive session.")
@@ -63,7 +63,7 @@ def main():
             try:
                 text = sys.stdin.read().strip()
                 if text:
-                    output = rag(text, db)
+                    output = rag_chatbot(text, db)
                     print(output)
             except Exception as e:
                 logging.error(f"Error handling piped input: {e}")

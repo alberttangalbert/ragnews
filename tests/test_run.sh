@@ -12,7 +12,7 @@ queries_ragnews=(
 )
 
 for query in "${queries_ragnews[@]}"; do
-  echo "$query" | python3 run.py --db=./sql_dbs/ragnews.db
+  echo "$query" | python3 chatbot.py --db=./sql_dbs/ragnews.db
 done
 
 # Test cases for claremont.db
@@ -24,5 +24,5 @@ queries_claremont=(
 )
 
 for query in "${queries_claremont[@]}"; do
-  echo "$query" | python3 run.py --db=./sql_dbs/claremont.db
+  echo "$query" | python3 chatbot.py --db=./sql_dbs/claremont.db
 done

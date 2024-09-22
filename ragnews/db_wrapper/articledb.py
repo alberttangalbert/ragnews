@@ -80,7 +80,9 @@ class ArticleDB:
         The final ranking is computed by the FTS5 rank * timebias_alpha / (days since article publication + timebias_alpha).
         
         '''
-        keywords = [clean_string(kw) for kw in query.split(",")]  # Split query into keywords
+        keywords = [clean_string(kw) for kw in query.split(",") if kw]  # Split query into phrases
+        if not keywords:
+            return []
         query_placeholder = ' OR '.join([f'articles MATCH ?' for _ in keywords])  
         sql = f'''
             SELECT rowid, rank, title, publish_date, hostname, url, en_summary, text

@@ -12,7 +12,7 @@ request_limit = 14400
 token_limit = 18000    
 
 class Groq_Wrapper:
-    def __init__(self):
+    def __init__(self, model='llama3-70b-8192'):
         self.client = Groq(
             api_key=os.environ.get("GROQ_API_KEY")
         )
@@ -20,6 +20,7 @@ class Groq_Wrapper:
         self.tokens_remaining = token_limit
         self.request_reset_time = 0
         self.token_reset_time = 0
+        self.model = model
 
     def enforce_rate_limits(self):
         """
@@ -69,7 +70,7 @@ class Groq_Wrapper:
             }]
         completion = self.client.chat.completions.with_raw_response.create(
             messages=messages,
-            model="llama3-8b-8192",
+            model=self.model,
             seed=seed
         )
         return completion
