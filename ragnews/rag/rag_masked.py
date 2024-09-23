@@ -85,7 +85,8 @@ def rag_masked(
 
     # 3. Construct a new user prompt that includes all of the articles and the original text.
     system_prompt = (
-        f"Your job is to find one word that replaces [MASK0] in the given fill-in-the-blank question.\n"
+        f"Your job is to find one word that should replace [MASK0] "
+        "in the given fill-in-the-blank question.\n"
         "Think about if your response is logical.\n"
         "Answer with one word in square brackets "
         "then explain where you found that answer. "
