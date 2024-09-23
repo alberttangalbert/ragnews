@@ -1,0 +1,400 @@
+Instance 1 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 5.512765169143677 secs
+
+Instance 2 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 1.6324589252471924 secs
+
+Incorrect!!!
+Instance 3 -> Prediction:  ['Waliczek'] Truth: ['Walz']
+Time elapsed: 18.181123971939087 secs
+
+Instance 4 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.281398057937622 secs
+
+Instance 5 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.5895841121673584 secs
+
+Instance 6 -> Prediction:  ['Vance'] Truth: ['Vance']
+Time elapsed: 1.2122540473937988 secs
+
+Instance 7 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.2926790714263916 secs
+
+Instance 8 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.283499002456665 secs
+
+Instance 9 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.1698179244995117 secs
+
+Instance 10 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 2.138188123703003 secs
+
+Instance 11 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.524778127670288 secs
+
+Instance 12 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.7289462089538574 secs
+
+Instance 13 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 4919.264461994171 secs
+
+Instance 14 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.7742679119110107 secs
+
+Instance 15 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 2.049302101135254 secs
+
+Instance 16 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.715336799621582 secs
+
+Instance 17 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.6065621376037598 secs
+
+Instance 18 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.4938650131225586 secs
+
+Instance 19 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.2709910869598389 secs
+
+Instance 20 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.6273601055145264 secs
+
+Instance 21 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 1.3390939235687256 secs
+
+Instance 22 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.3731789588928223 secs
+
+Incorrect!!!
+Instance 23 -> Prediction:  ['Zelensky'] Truth: ['Biden']
+Time elapsed: 1.7231950759887695 secs
+
+Instance 24 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.3412740230560303 secs
+
+Instance 25 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 2.242898941040039 secs
+
+Instance 26 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 2.525810956954956 secs
+
+Instance 27 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.2961690425872803 secs
+
+Instance 28 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.5017459392547607 secs
+
+Instance 29 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.2334411144256592 secs
+
+Instance 30 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.2436070442199707 secs
+
+Instance 31 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.5126800537109375 secs
+
+Incorrect!!!
+Instance 32 -> Prediction:  ['Biden'] Truth: ['Trump']
+Time elapsed: 1.4113569259643555 secs
+
+Instance 33 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 0.9812920093536377 secs
+
+Instance 34 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.5042762756347656 secs
+
+Incorrect!!!
+Instance 35 -> Prediction:  ['Harris'] Truth: ['Trump']
+Time elapsed: 1.5938382148742676 secs
+
+Instance 36 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.396684169769287 secs
+
+Instance 37 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.8215620517730713 secs
+
+Instance 38 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.4997649192810059 secs
+
+Instance 39 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.2846930027008057 secs
+
+Instance 40 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 1.4513399600982666 secs
+
+Instance 41 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.6161398887634277 secs
+
+Instance 42 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 2.0295190811157227 secs
+
+Instance 43 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.6181409358978271 secs
+
+Incorrect!!!
+Instance 44 -> Prediction:  ['Biden'] Truth: ['Harris']
+Time elapsed: 1.428096055984497 secs
+
+Instance 45 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.2988770008087158 secs
+
+Incorrect!!!
+Instance 46 -> Prediction:  ['Dems'] Truth: ['Harris']
+Time elapsed: 1.811633825302124 secs
+
+Instance 47 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 1.4005072116851807 secs
+
+Instance 48 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.6053831577301025 secs
+
+Instance 49 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.7620689868927002 secs
+
+Instance 50 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.2149791717529297 secs
+
+Instance 51 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 1.9137511253356934 secs
+
+Instance 52 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.6776230335235596 secs
+
+Instance 53 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.5700631141662598 secs
+
+Instance 54 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.594851016998291 secs
+
+Instance 55 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.6897311210632324 secs
+
+Instance 56 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 1.323171854019165 secs
+
+Instance 57 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.1872749328613281 secs
+
+Instance 58 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.4029948711395264 secs
+
+Instance 59 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 3.2417030334472656 secs
+
+Instance 60 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 3.813478946685791 secs
+
+Instance 61 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.4411859512329102 secs
+
+Instance 62 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 3.856072187423706 secs
+
+Instance 63 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 3.4446909427642822 secs
+
+Instance 64 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 4.063481092453003 secs
+
+Instance 65 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 1.355363130569458 secs
+
+Instance 66 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 4.002799987792969 secs
+
+Instance 67 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 4.191210985183716 secs
+
+Instance 68 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 3.727036952972412 secs
+
+Instance 69 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.60701322555542 secs
+
+Instance 70 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 1.4012370109558105 secs
+
+Instance 71 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 2.0970568656921387 secs
+
+Instance 72 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.7156412601470947 secs
+
+Instance 73 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 3.249629259109497 secs
+
+Instance 74 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 5.98516583442688 secs
+
+Instance 75 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 3.4685869216918945 secs
+
+Instance 76 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 3.7486207485198975 secs
+
+Instance 77 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.4051978588104248 secs
+
+Instance 78 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 3.652596950531006 secs
+
+Instance 79 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.195793867111206 secs
+
+Incorrect!!!
+Instance 80 -> Prediction:  ['Harris'] Truth: ['Biden']
+Time elapsed: 5.72254204750061 secs
+
+Instance 81 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 3.745530128479004 secs
+
+Instance 82 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.3886821269989014 secs
+
+Instance 83 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 3.2412941455841064 secs
+
+Instance 84 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 3.2164089679718018 secs
+
+Instance 85 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 3.478057861328125 secs
+
+Instance 86 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 3.449566125869751 secs
+
+Instance 87 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 6.621854066848755 secs
+
+Instance 88 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 1.2958838939666748 secs
+
+Instance 89 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 6.10710334777832 secs
+
+Instance 90 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 5.600306749343872 secs
+
+Instance 91 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 2.4204261302948 secs
+
+Instance 92 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 2.018435001373291 secs
+
+Incorrect!!!
+Instance 93 -> Prediction:  ['Harris'] Truth: ['Biden']
+Time elapsed: 1.1728200912475586 secs
+
+Instance 94 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 3.467472791671753 secs
+
+Instance 95 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 3.4460642337799072 secs
+
+Instance 96 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 6.107319116592407 secs
+
+Instance 97 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 3.4512481689453125 secs
+
+Incorrect!!!
+Instance 98 -> Prediction:  ['Harris'] Truth: ['Walz']
+Time elapsed: 3.3397622108459473 secs
+
+Instance 99 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 4.070180177688599 secs
+
+Instance 100 -> Prediction:  ['Walz'] Truth: ['Walz']
+Time elapsed: 13.012711763381958 secs
+
+Instance 101 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 9.648178100585938 secs
+
+Instance 102 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 7.851120948791504 secs
+
+Instance 103 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 14.914427757263184 secs
+
+Instance 104 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 3.5506277084350586 secs
+
+Instance 105 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.4549741744995117 secs
+
+Instance 106 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 5.421905994415283 secs
+
+Instance 107 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 3.0570390224456787 secs
+
+Instance 108 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.5027368068695068 secs
+
+Instance 109 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.3591008186340332 secs
+
+Instance 110 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 3.5906879901885986 secs
+
+Instance 111 -> Prediction:  ['Vance'] Truth: ['Vance']
+Time elapsed: 1.196272850036621 secs
+
+Instance 112 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 3.4438068866729736 secs
+
+Instance 113 -> Prediction:  ['Oliver'] Truth: ['Oliver']
+Time elapsed: 3.6492769718170166 secs
+
+Incorrect!!!
+Instance 114 -> Prediction:  ['Damon'] Truth: ['Stein']
+Time elapsed: 9.078171253204346 secs
+
+Incorrect!!!
+Instance 115 -> Prediction:  ['Honkala'] Truth: ['Ware']
+Time elapsed: 1.3992302417755127 secs
+
+Instance 116 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.191554069519043 secs
+
+Incorrect!!!
+Instance 117 -> Prediction:  ['Harris'] Truth: ['Biden']
+Time elapsed: 6.088577747344971 secs
+
+Incorrect!!!
+Instance 118 -> Prediction:  ['Harris'] Truth: ['Trump']
+Time elapsed: 1.3952069282531738 secs
+
+Instance 119 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 3.3678839206695557 secs
+
+Instance 120 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 2.9751858711242676 secs
+
+Instance 121 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 3.202910900115967 secs
+
+Instance 122 -> Prediction:  ['Biden'] Truth: ['Biden']
+Time elapsed: 3.0412559509277344 secs
+
+Instance 123 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 4.170034885406494 secs
+
+Instance 124 -> Prediction:  ['Harris'] Truth: ['Harris']
+Time elapsed: 2.432567834854126 secs
+
+Instance 125 -> Prediction:  ['Trump'] Truth: ['Trump']
+Time elapsed: 1.3929109573364258 secs
+
+Incorrect!!!
+Instance 126 -> Prediction:  ['Harris'] Truth: ['Vance']
+Time elapsed: 0.9869439601898193 secs
+
+Incorrect!!!
+Instance 127 -> Prediction:  ['Emhoff'] Truth: ['Walz']
+Time elapsed: 3.393929958343506 secs
+
+Result Summary
+--------------
+Accuracy: 112/127 or 0.8818897637795275%
+Total time taken: 15.138480999999999 secs
