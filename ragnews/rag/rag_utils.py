@@ -11,3 +11,6 @@ def find_answer_in_brackets(text):
         if "mask" not in content.lower(): 
             return content
     return None 
+
+def clean_response(s):
+    return ''.join(re.findall(r'[a-zA-Z]+', s))

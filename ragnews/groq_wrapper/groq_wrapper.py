@@ -12,7 +12,7 @@ request_limit = 14400
 token_limit = 18000    
 
 class Groq_Wrapper:
-    def __init__(self, model='llama3-70b-8192'):
+    def __init__(self, model='llama-3.1-70b-versatile'):
         self.client = Groq(
             api_key=os.environ.get("GROQ_API_KEY")
         )
