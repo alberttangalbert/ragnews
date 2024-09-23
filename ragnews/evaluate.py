@@ -12,7 +12,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--loglevel', default='warning')
     parser.add_argument('--db', default='../sql_dbs/ragnews.db')
-    parser.add_argument('--article_limit', default=3)
+    parser.add_argument('--article_limit', default=5)
     parser.add_argument('--llm_model', default='llama-3.1-70b-versatile')
     # default database 
     default_testing_data_path = (
@@ -68,10 +68,13 @@ def run_tests(testing_data, model, verbose=True):
         # check if prediction is equal to mask
         if [p.lower() for p in prediction] == [m.lower() for m in mask]:
             n_correct += 1
+        else:
             if verbose:
-                print(f"Instance {i + 1} -> Prediction: ", prediction, "Truth:", mask)
-                print("Time elapsed:", toc - tic, "secs")
-                print()
+                print("Incorrect!!!")
+        if verbose:
+            print(f"Instance {i + 1} -> Prediction: ", prediction, "Truth:", mask)
+            print("Time elapsed:", toc - tic, "secs")
+            print()
         time.sleep(3)
     # display results
     end_time = time.process_time()
