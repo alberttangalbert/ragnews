@@ -16,18 +16,19 @@ jobs:
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
     steps:
       - uses: actions/checkout@v2
+      - name: Set up Python ${{matrix.python}}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{matrix.python}}
+
       - name: Checkout repository
+        uses: actions/checkout@v2
         with:
           submodules: true  # Ensures submodules are checked out
           fetch-depth: 0     # Fetch full history to ensure submodules are initialized
 
       - name: Update submodules
         run: git submodule update --init --recursive
-
-      - name: Set up Python ${{matrix.python}}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{matrix.python}}
 
       - name: Install dependencies
         run: |
