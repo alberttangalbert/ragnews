@@ -4,7 +4,6 @@ import json
 import time 
 
 from rag.rag_classifier import RAG_Classifier
-from rag import rag_chatbot
 
 def parse_arguments():
     '''
@@ -79,7 +78,7 @@ def run_tests(testing_data, model, verbose=True):
     print("Result Summary")
     print("--------------")
     percent_accuracy = 1.0 * n_correct / len(testing_data)
-    print("Accuracy:", str(n_correct) + "/" + str(len(testing_data), "or", str(percent_accuracy) + "%"))
+    print("Accuracy:", str(n_correct) + "/" + str(len(testing_data)), "or", str(percent_accuracy) + "%")
     print("Total time taken:", end_time - start_time, "secs")
     return percent_accuracy
 

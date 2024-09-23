@@ -3,7 +3,7 @@ import logging
 import sys 
 
 from db_wrapper.articledb import ArticleDB
-from rag import rag_chatbot
+from rag.rag_chatbot import rag_chatbot
 
 def parse_arguments():
     '''
@@ -27,6 +27,10 @@ def setup_logging(loglevel):
     )
 
 def main():
+    '''
+    >>> python chatbot.py
+
+    '''
     args = parse_arguments()
     setup_logging(args.loglevel)
 

@@ -8,7 +8,7 @@ Groq then responds with given the updated information from the articles.
 
 Steps to setup:
 1) Create .env file (example given) and enter GROQ api key
-2) 
+2) Install requirements
 ```
 $ pip install -r requirements.txt
 ```
