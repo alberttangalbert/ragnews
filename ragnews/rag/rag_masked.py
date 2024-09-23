@@ -89,6 +89,7 @@ def rag_masked(
         "Think about if your response is logical.\n"
         "Answer with one word in square brackets "
         "then explain where you found that answer. "
+        "Let us think step by step.\n"
         "If the answer is a name then return only the last name - "
         "i.e. for 'Franklin D. Roosevelt' just return [Roosevelt]. "
         f"Given fill-in-the-blank question:\n{text}"
