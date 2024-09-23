@@ -3,7 +3,7 @@ import logging
 import sys 
 
 from db_wrapper.articledb import ArticleDB
-from ragnews.rag import rag_chatbot
+from rag import rag_chatbot
 
 def parse_arguments():
     '''

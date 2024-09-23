@@ -36,7 +36,13 @@ $ pip install .
 $ export $(cat .env)
 ```
 
-5) Run to create/update existing sql database (optional)
+5) Run
+
+---
+
+To run a chatbot: 
+
+Run to create/update existing sql database (optional)
 ```
 $ cd ragnews 
 $ python3 chatbot.py --add_url="$url" --recursive_depth="$depth" --db="$path_to_db"
@@ -107,6 +113,22 @@ It's also important to consider that the articles are citing various factors tha
 Given the complexities involved, it's challenging to project a clear winner at this point. It's essential to stay updated with the latest developments, candidate performances, and public opinion surveys to gain a better understanding of the election's outcome.
 ```
 
+---
+
+To run evaluation of RAG on hairy-trumpet dataset
+
+```
+$ python3 evaluate.py --db="$path_to_db" --testing_data_path="$path_to_tesitng_data"
+```
+
+Example runs:
+
+```
+
+```
+---
+
+
 Steps to run tests 
 
 1) Setup permissions
@@ -116,7 +138,8 @@ $ chmod +x ./tests/*.sh
 2) Run sh files 
 ```
 # cd tests
-$ ./test_run.sh
+$ ./test_chatbot.sh
+$ ./test_evalution.sh
 $ ./test-update_db-claremont.sh
 $ ./test-update_db.sh
 ```
