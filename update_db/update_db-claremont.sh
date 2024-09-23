@@ -17,5 +17,5 @@ https://www.cgu.edu/news/
 '
 for url in $urls; do
     echo url
-    python3 chatbot.py --add_url="$url" --recursive_depth=3 --db=./sql_dbs/ragnews.db --loglevel=INFO
+    python3 chatbot.py --add_url="$url" --recursive_depth=3 --db=../sql_dbs/ragnews.db --loglevel=INFO
 done

@@ -66,7 +66,7 @@ Note: As of the knowledge cutoff, President Joe Biden had withdrawn from the rac
 ```
 ---
 ```
-$ python chatbot.py --db="./sql_dbs/claremont.db"
+$ python chatbot.py --db="../sql_dbs/claremont.db"
 $ user_query> tell me about claremont mckenna college
 Claremont McKenna College (CMC) is a private liberal arts college located in Claremont, California, United States. It is one of the seven member institutions of The Claremont Colleges, a network of liberal arts colleges and graduate schools. CMC is known for its strong programs in the social sciences, humanities, and natural sciences, as well as its focus on leadership, international relations, and global issues.
 
@@ -91,7 +91,7 @@ Related articles:
 ```
 ---
 ```
-$ python chatbot.py --db="./sql_dbs/ragnews.db"  
+$ python chatbot.py --db="../sql_dbs/ragnews.db"  
 $ user_query> who is projected to win the 2024 election
 As of the articles provided, it appears that the outcome of the 2024 presidential election is uncertain and subject to various factors. There is no clear projection or prediction of which candidate, Kamala Harris or Donald Trump, is likely to win.
 
