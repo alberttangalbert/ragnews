@@ -103,7 +103,25 @@ def main():
 
     ...
 
+    Instance 121 -> Prediction:  ['Biden'] Truth: ['Biden']
+    Time elapsed: 3.2429392337799072 secs
 
+    Instance 122 -> Prediction:  ['Biden'] Truth: ['Biden']
+    Time elapsed: 3.208437919616699 secs
+
+    Instance 123 -> Prediction:  ['Trump'] Truth: ['Trump']
+    Time elapsed: 3.2803022861480713 secs
+
+    Instance 124 -> Prediction:  ['Harris'] Truth: ['Harris']
+    Time elapsed: 3.0730738639831543 secs
+
+    Instance 125 -> Prediction:  ['Trump'] Truth: ['Trump']
+    Time elapsed: 6.276185989379883 secs
+
+    Result Summary
+    --------------
+    Accuracy: 104/127 or 0.8188976377952756%
+    Total time taken: 14.675982000000001 secs
     '''
     # setup args and logging 
     args = parse_arguments()

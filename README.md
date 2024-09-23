@@ -121,11 +121,7 @@ To run evaluation of RAG on hairy-trumpet dataset
 $ python3 evaluate.py --db="$path_to_db" --testing_data_path="$path_to_tesitng_data"
 ```
 
-Example runs:
-
-```
-
-```
+Refer to example_evaulte_run.txt to see an example run
 ---
 
 
